@@ -36,7 +36,7 @@ const TabelaRodada = () => {
                 onClick={() => {
                   if (rodada > 1) {
                     setRodada(rodada - 1);
-                    atualizarTabela(rodada);
+                    atualizarTabela(rodada - 1);
                   }
                 }}
               />
@@ -47,7 +47,7 @@ const TabelaRodada = () => {
                 onClick={() => {
                   if (rodada < 38) {
                     setRodada(rodada + 1);
-                    atualizarTabela(rodada);
+                    atualizarTabela(rodada + 1);
                   }
                 }}
               />
