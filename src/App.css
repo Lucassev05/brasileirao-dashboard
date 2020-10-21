@@ -1,38 +1,129 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+.app {
+  box-sizing: border-box;
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* BODY */
+.body {
+  display: flex;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.body .conteudo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1280px;
+  padding: 2rem;
 }
+
+/* Rodada
+
+.body .conteudo .rodada {
+  max-width: 25%;
+  margin-left: 1.5rem;
+}
+
+.body .conteudo .rodada .time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.body .conteudo .rodada .time > img {
+  margin-top: 0.3rem;
+}
+
+.body .conteudo .rodada tbody {
+  width: 100%;
+  border-top: 0.01rem solid gray;
+  border-collapse: collapse;
+}
+.body .conteudo .rodada tbody tr th {
+  border-bottom: 0.2rem solid gray;
+  padding: 1rem;
+}
+.body .conteudo .rodada tbody tr th div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.body .conteudo .rodada tbody tr th div > img:hover {
+  cursor: pointer;
+}
+
+.body .conteudo .rodada tbody tr td {
+  border-bottom: 0.01rem solid gray;
+  padding: 1rem;
+}
+
+.body .conteudo .rodada .titulo > h4 {
+  margin: 0px;
+}
+
+.body .conteudo .rodada .pontuacao {
+  font-size: 1.5rem;
+  padding: 0;
+} */
+
+/* tabela principal */
+
+/* .body .conteudo .tabela {
+  width: 75%;
+}
+
+.body .conteudo .tabela table {
+  width: 100%;
+  border-top: 0.01rem solid gray;
+  border-collapse: collapse;
+}
+
+.body .conteudo .tabela table tr th {
+  border-bottom: 0.2rem solid gray;
+  padding: 1rem 0.2rem;
+  width: 40px;
+}
+
+.body .conteudo .tabela table tr th:first-child {
+  max-width: 200px;
+  border-right: 0.2rem solid gray;
+}
+
+.body .conteudo .tabela table tr td {
+  border-bottom: 0.01rem solid gray;
+  padding: 1rem 0.2rem;
+}
+
+.body .conteudo .tabela table tr td:first-child {
+  max-width: 200px;
+  border-right: 0.2rem solid gray;
+}
+
+.body .conteudo .tabela table tr td div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 1rem;
+}
+
+.body .conteudo .tabela table tr td div > div {
+  margin-left: 0.5rem;
+  border-left: 2px solid gray;
+}
+
+.body .conteudo .tabela table tr:nth-child(n + 18) td div > div {
+  border-color: red;
+}
+
+.body .conteudo .tabela table tr td:nth-child(2n) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.body .conteudo .tabela table tr td div img {
+  margin: 0rem 0.5rem;
+  width: 1.5rem;
+} */

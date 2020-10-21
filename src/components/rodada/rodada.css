@@ -1,0 +1,50 @@
+/* Rodada */
+
+.rodada {
+  max-width: 25%;
+  margin-left: 1.5rem;
+}
+
+.rodada .time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.rodada .time > img {
+  margin-top: 0.3rem;
+}
+
+.rodada tbody {
+  width: 100%;
+  border-top: 0.01rem solid gray;
+  border-collapse: collapse;
+}
+.rodada tbody tr th {
+  border-bottom: 0.2rem solid gray;
+  padding: 1rem;
+}
+.rodada tbody tr th div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rodada tbody tr th div > img:hover {
+  cursor: pointer;
+}
+
+.rodada tbody tr td {
+  border-bottom: 0.01rem solid gray;
+  padding: 1rem;
+}
+
+.rodada .titulo > h4 {
+  margin: 0px;
+}
+
+.rodada .pontuacao {
+  font-size: 1.5rem;
+  padding: 0;
+}
