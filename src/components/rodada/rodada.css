@@ -16,26 +16,26 @@
   margin-top: 0.3rem;
 }
 
-.rodada tbody {
+.rodada table {
   width: 100%;
   border-top: 0.01rem solid gray;
   border-collapse: collapse;
 }
-.rodada tbody tr th {
+.rodada table tr th {
   border-bottom: 0.2rem solid gray;
   padding: 1rem;
 }
-.rodada tbody tr th div {
+.rodada table tr th div {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.rodada tbody tr th div > img:hover {
+.rodada table tr th div > img:hover {
   cursor: pointer;
 }
 
-.rodada tbody tr td {
+.rodada table tr td {
   border-bottom: 0.01rem solid gray;
   padding: 1rem;
 }

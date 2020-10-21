@@ -17,42 +17,45 @@ const TabelaClassificacao = () => {
   return (
     <div className="tabela">
       <table>
-        <tr>
-          <th>Classificação</th>
-          <th>PTS</th>
-          <th>E</th>
-          <th>V</th>
-          <th>D</th>
-          <th>GF</th>
-          <th>GS</th>
-          <th>SG</th>
-        </tr>
-        {classificacao.map((element, index) => {
-          console.log(element);
-          return (
-            <tr>
-              <td>
-                <div className="conteudo-td">
-                  {index < 9 ? "0" + (index + 1) : index + 1}º{" "}
-                  <div>
-                    <img
-                      src="https://e.imguol.com/futebol/brasoes/40x40/internacional.png"
-                      alt="img"
-                    />{" "}
-                    {element.nome}
+        <thead>
+          <tr key="0">
+            <th>Classificação</th>
+            <th>PTS</th>
+            <th>E</th>
+            <th>V</th>
+            <th>D</th>
+            <th>GF</th>
+            <th>GS</th>
+            <th>SG</th>
+          </tr>
+        </thead>
+        <tbody>
+          {classificacao.map((element, index) => {
+            return (
+              <tr key={index + 1}>
+                <td>
+                  <div className="conteudo-td">
+                    {index < 9 ? "0" + (index + 1) : index + 1}º{" "}
+                    <div>
+                      <img
+                        src="https://e.imguol.com/futebol/brasoes/40x40/internacional.png"
+                        alt="img"
+                      />{" "}
+                      {element.nome}
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td>{element.pontos}</td>
-              <td>{element.empates}</td>
-              <td>{element.vitorias}</td>
-              <td>{element.derrotas}</td>
-              <td>{element.golsFeitos}</td>
-              <td>{element.golsSofridos}</td>
-              <td>48</td>
-            </tr>
-          );
-        })}
+                </td>
+                <td>{element.pontos}</td>
+                <td>{element.empates}</td>
+                <td>{element.vitorias}</td>
+                <td>{element.derrotas}</td>
+                <td>{element.golsFeitos}</td>
+                <td>{element.golsSofridos}</td>
+                <td>48</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );
