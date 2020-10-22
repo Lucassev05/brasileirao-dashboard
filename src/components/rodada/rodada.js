@@ -2,7 +2,7 @@ import React from "react";
 import "./rodada.css";
 import { arrow_left, arrow_right } from "../../assets/index";
 
-const TabelaRodada = () => {
+const TabelaRodada = (props) => {
   const [rodada, setRodada] = React.useState(1);
   const [tabelaRodada, setTabelaRodada] = React.useState([]);
 

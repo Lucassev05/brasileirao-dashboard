@@ -5,13 +5,32 @@ import TabelaRodada from "./components/rodada/rodada";
 import "./App.css";
 
 function App() {
+  const [token, setToken] = React.useState("");
+
+  const realizarLogin = (data) => {
+    fetch("https://desafio-3-back-cubos-academy.herokuapp.com/auth", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((dados) => {
+        setToken(dados.dados.token);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
     <div className="app">
-      <Header />
+      <Header token={token} realizarLogin={realizarLogin} />
       <div className="body">
         <div className="conteudo">
           <TabelaClassificacao />
-          <TabelaRodada />
+          <TabelaRodada token={token} />
         </div>
       </div>
     </div>

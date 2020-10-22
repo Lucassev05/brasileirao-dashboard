@@ -3,7 +3,7 @@ import { Table } from "@material-ui/core";
 
 import "./classificacao.css";
 
-const TabelaClassificacao = () => {
+const TabelaClassificacao = (props) => {
   const [classificacao, setClassificacao] = React.useState([]);
 
   React.useEffect(() => {
