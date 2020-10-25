@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .tabela {
   width: 75%;
 }
@@ -41,8 +45,12 @@
   border-left: 2px solid gray;
 }
 
-.tabela table tr:nth-child(n + 18) td div > div {
+.tabela table tr:nth-child(n + 17) td div > div {
   border-color: red;
+}
+
+.tabela table tr:nth-child(-n + 4) td div > div {
+  border-color: green;
 }
 
 .tabela table tr td:nth-child(2n) {

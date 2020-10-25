@@ -5,20 +5,24 @@ import { arrow_left, arrow_right } from "../../assets/index";
 const TabelaRodada = (props) => {
   const [rodada, setRodada] = React.useState(1);
   const [tabelaRodada, setTabelaRodada] = React.useState([]);
+  const [novaTabelaRodada, setNovaTabelaRodada] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("https://desafio-3-back-cubos-academy.herokuapp.com/jogos/1")
+    fetch("http://localhost:8081/jogos/1")
       .then((res) => res.json())
       .then((dados) => {
         setTabelaRodada(dados.dados);
+        setNovaTabelaRodada(dados.dados);
       });
   }, []);
 
   const atualizarTabela = (rodada) => {
-    fetch(`https://desafio-3-back-cubos-academy.herokuapp.com/jogos/${rodada}`)
+    console.log(rodada);
+    fetch(`http://localhost:8081/jogos/${rodada}`)
       .then((res) => res.json())
       .then((dados) => {
         setTabelaRodada(dados.dados);
+        setNovaTabelaRodada(dados.dados);
       });
   };
 
@@ -27,7 +31,7 @@ const TabelaRodada = (props) => {
       <table>
         <thead>
           <tr key="0">
-            <th colSpan="5">
+            <th colSpan="6">
               <div className="cabecalho">
                 <img
                   src={arrow_left}
@@ -61,25 +65,51 @@ const TabelaRodada = (props) => {
                 <td>
                   <div className="time">
                     <div>{element.time_casa}</div>
-                    <img
-                      src="https://e.imguol.com/futebol/brasoes/40x40/internacional.png"
-                      alt="img"
-                    />{" "}
+                    <img src={element.brasao_casa} alt="img" />{" "}
                   </div>
                 </td>
 
-                <td className="pontuacao">{element.gols_casa}</td>
+                <td className="pontuacao">
+                  {props.token == "" ? (
+                    element.gols_casa
+                  ) : (
+                    <input
+                      class="gols-casa"
+                      value={novaTabelaRodada[index].gols_casa}
+                      onChange={(event) => {
+                        const tabelaNova = novaTabelaRodada;
+                        tabelaNova[index].gols_casa = event.target.value;
+                        setNovaTabelaRodada(tabelaNova);
+                      }}
+                      type="number"
+                    />
+                  )}
+                </td>
                 <td>x</td>
-                <td className="pontuacao">{element.gols_visitante}</td>
+                <td className="pontuacao">
+                  {props.token == "" ? (
+                    element.gols_visitante
+                  ) : (
+                    <input
+                      class="gols-visitante"
+                      value={element.gols_visitante}
+                      type="number"
+                    />
+                  )}
+                </td>
                 <td>
                   <div className="time">
                     {element.time_visitante}
-                    <img
-                      src="https://e.imguol.com/futebol/brasoes/40x40/internacional.png"
-                      alt="img"
-                    />{" "}
+                    <img src={element.brasao_visitante} alt="img" />{" "}
                   </div>
                 </td>
+                {props.token != "" ? (
+                  <td>
+                    <button>Confirm</button>
+                  </td>
+                ) : (
+                  ""
+                )}
               </tr>
             );
           })}

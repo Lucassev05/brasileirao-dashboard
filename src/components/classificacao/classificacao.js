@@ -7,7 +7,7 @@ const TabelaClassificacao = (props) => {
   const [classificacao, setClassificacao] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("https://desafio-3-back-cubos-academy.herokuapp.com/classificacao")
+    fetch("http://localhost:8081/classificacao")
       .then((res) => res.json())
       .then((dados) => {
         setClassificacao(dados.dados);
@@ -37,11 +37,7 @@ const TabelaClassificacao = (props) => {
                   <div className="conteudo-td">
                     {index < 9 ? "0" + (index + 1) : index + 1}º{" "}
                     <div>
-                      <img
-                        src="https://e.imguol.com/futebol/brasoes/40x40/internacional.png"
-                        alt="img"
-                      />{" "}
-                      {element.nome}
+                      <img src={element.brasao} alt="img" /> {element.nome}
                     </div>
                   </div>
                 </td>
@@ -51,7 +47,7 @@ const TabelaClassificacao = (props) => {
                 <td>{element.derrotas}</td>
                 <td>{element.golsFeitos}</td>
                 <td>{element.golsSofridos}</td>
-                <td>48</td>
+                <td>{element.golsFeitos - element.golsSofridos}</td>
               </tr>
             );
           })}

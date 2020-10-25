@@ -1,4 +1,7 @@
 /* Rodada */
+* {
+  box-sizing: border-box;
+}
 
 .rodada {
   max-width: 25%;
@@ -47,4 +50,30 @@
 .rodada .pontuacao {
   font-size: 1.5rem;
   padding: 0;
+}
+
+.gols-casa,
+.gols-visitante {
+  background-color: transparent;
+  width: 1.5rem;
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 0 0 0;
+  border: none;
+  border: 1px solid rgb(92, 92, 92);
+  outline: 0;
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

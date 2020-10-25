@@ -17,7 +17,9 @@ function App() {
     })
       .then((response) => response.json())
       .then((dados) => {
-        setToken(dados.dados.token);
+        if (dados.status == "sucesso") {
+          setToken(dados.dados.token);
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -26,7 +28,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header token={token} realizarLogin={realizarLogin} />
+      <Header token={token} setToken={setToken} realizarLogin={realizarLogin} />
       <div className="body">
         <div className="conteudo">
           <TabelaClassificacao />
