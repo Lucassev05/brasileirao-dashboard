@@ -8,7 +8,7 @@ function App() {
   const [token, setToken] = React.useState("");
 
   const realizarLogin = (data) => {
-    fetch("https://desafio-3-back-cubos-academy.herokuapp.com/auth", {
+    fetch("http://localhost:8081/auth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

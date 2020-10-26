@@ -1,11 +1,14 @@
 import React from "react";
 import "./rodada.css";
-import { arrow_left, arrow_right } from "../../assets/index";
+import { arrow_left, arrow_right, edit, confirm } from "../../assets/index";
 
 const TabelaRodada = (props) => {
   const [rodada, setRodada] = React.useState(1);
   const [tabelaRodada, setTabelaRodada] = React.useState([]);
   const [novaTabelaRodada, setNovaTabelaRodada] = React.useState([]);
+  const [linhaEditavel, setLinhaEditavel] = React.useState(null);
+  const [golCasa, setGolCasa] = React.useState(null);
+  const [golVisitante, setGolVisitante] = React.useState(null);
 
   React.useEffect(() => {
     fetch("http://localhost:8081/jogos/1")
@@ -17,7 +20,6 @@ const TabelaRodada = (props) => {
   }, []);
 
   const atualizarTabela = (rodada) => {
-    console.log(rodada);
     fetch(`http://localhost:8081/jogos/${rodada}`)
       .then((res) => res.json())
       .then((dados) => {
@@ -25,6 +27,22 @@ const TabelaRodada = (props) => {
         setNovaTabelaRodada(dados.dados);
       });
   };
+
+  const editarPartida = (element) => {
+    setLinhaEditavel(element.id);
+    setGolCasa(element.childNodes[1].innerText);
+    setGolCasa(element.childNodes[3].innerText);
+  };
+
+  // const insertInput = () => {
+  //   {linhaEditavel==}(
+  //                   <input
+  //                     className="gols-visitante"
+  //                     value={element.gols_visitante}
+  //                     type="number"
+  //                   />
+  //                 )
+  // }
 
   return (
     <div className="rodada">
@@ -61,7 +79,7 @@ const TabelaRodada = (props) => {
         <tbody>
           {tabelaRodada.map((element, index) => {
             return (
-              <tr key={index + 1}>
+              <tr id={element.id} key={element.id}>
                 <td>
                   <div className="time">
                     <div>{element.time_casa}</div>
@@ -74,7 +92,7 @@ const TabelaRodada = (props) => {
                     element.gols_casa
                   ) : (
                     <input
-                      class="gols-casa"
+                      className="gols-casa"
                       value={novaTabelaRodada[index].gols_casa}
                       onChange={(event) => {
                         const tabelaNova = novaTabelaRodada;
@@ -87,16 +105,11 @@ const TabelaRodada = (props) => {
                 </td>
                 <td>x</td>
                 <td className="pontuacao">
-                  {props.token == "" ? (
-                    element.gols_visitante
-                  ) : (
-                    <input
-                      class="gols-visitante"
-                      value={element.gols_visitante}
-                      type="number"
-                    />
-                  )}
+                  {props.token == ""
+                    ? element.gols_visitante
+                    : element.gols_visitante}
                 </td>
+                {/* "{ insertInput }" */}
                 <td>
                   <div className="time">
                     {element.time_visitante}
@@ -105,7 +118,15 @@ const TabelaRodada = (props) => {
                 </td>
                 {props.token != "" ? (
                   <td>
-                    <button>Confirm</button>
+                    {" "}
+                    <img
+                      className="img-editar"
+                      src={edit}
+                      alt="editar"
+                      onClick={(event) => {
+                        editarPartida(event.target.parentElement.parentElement);
+                      }}
+                    />
                   </td>
                 ) : (
                   ""

@@ -15,7 +15,7 @@ const Header = (props) => {
               <label className="email">
                 Email
                 <input
-                  onInput={(event) => setEmail(event.target.value)}
+                  onChange={(event) => setEmail(event.target.value)}
                   value={email}
                   type="email"
                 />
@@ -23,7 +23,7 @@ const Header = (props) => {
               <label className="senha">
                 Senha
                 <input
-                  onInput={(event) => setPassword(event.target.value)}
+                  onChange={(event) => setPassword(event.target.value)}
                   value={password}
                   type="password"
                 />

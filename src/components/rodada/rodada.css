@@ -67,6 +67,11 @@
   text-align: center;
 }
 
+.img-editar,
+.img-salvar {
+  cursor: pointer;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
