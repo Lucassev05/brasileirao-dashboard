@@ -32,10 +32,12 @@ const TabelaRodada = (props) => {
 
   const editarPartida = (element, estado) => {
     setLinhaEditavel(element.id);
+    console.log(element.id);
     setGolCasa(element.childNodes[1].innerText);
     setGolCasa(element.childNodes[3].innerText);
     if (estado === "confirm") {
       setEdicao("confirm");
+
       fetch("http://localhost:8081/jogos", {
         method: "POST",
         headers: {
@@ -43,9 +45,9 @@ const TabelaRodada = (props) => {
           authorization: `Bearer ${props.token}`,
         },
         body: JSON.stringify({
-          id: element.id,
-          golsCasa: element.childNodes[1].innerText,
-          golsVisitante: element.childNodes[3].innerText,
+          id: parseInt(element.id),
+          golsCasa: parseInt(element.childNodes[1].innerText),
+          golsVisitante: parseInt(element.childNodes[3].innerText),
         }),
       })
         .then((response) => {
@@ -113,10 +115,8 @@ const TabelaRodada = (props) => {
                 </td>
 
                 <td className="pontuacao">
-                  {props.token == "" ? (
-                    element.gols_casa
-                  ) : (
-                    <input
+                  {props.token == "" ? element.gols_casa : element.gols_casa}
+                  {/* <input
                       className="gols-casa"
                       value={novaTabelaRodada[index].gols_casa}
                       onChange={(event) => {
@@ -125,8 +125,7 @@ const TabelaRodada = (props) => {
                         setNovaTabelaRodada(tabelaNova);
                       }}
                       type="number"
-                    />
-                  )}
+                    /> */}
                 </td>
                 <td>x</td>
                 <td className="pontuacao">
