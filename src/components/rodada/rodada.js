@@ -9,6 +9,8 @@ const TabelaRodada = (props) => {
   const [linhaEditavel, setLinhaEditavel] = React.useState(null);
   const [golCasa, setGolCasa] = React.useState(null);
   const [golVisitante, setGolVisitante] = React.useState(null);
+  const [edicao, setEdicao] = React.useState("edicao");
+  const [idEvento, setIdEvento] = React.useState(null);
 
   React.useEffect(() => {
     fetch("http://localhost:8081/jogos/1")
@@ -28,10 +30,33 @@ const TabelaRodada = (props) => {
       });
   };
 
-  const editarPartida = (element) => {
+  const editarPartida = (element, estado) => {
     setLinhaEditavel(element.id);
     setGolCasa(element.childNodes[1].innerText);
     setGolCasa(element.childNodes[3].innerText);
+    if (estado === "confirm") {
+      setEdicao("confirm");
+      fetch("http://localhost:8081/jogos", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${props.token}`,
+        },
+        body: JSON.stringify({
+          id: element.id,
+          golsCasa: element.childNodes[1].innerText,
+          golsVisitante: element.childNodes[3].innerText,
+        }),
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    } else {
+      setEdicao("edicao");
+    }
   };
 
   // const insertInput = () => {
@@ -121,10 +146,21 @@ const TabelaRodada = (props) => {
                     {" "}
                     <img
                       className="img-editar"
-                      src={edit}
+                      src={edicao === "edicao" ? edit : confirm}
                       alt="editar"
                       onClick={(event) => {
-                        editarPartida(event.target.parentElement.parentElement);
+                        setIdEvento(
+                          event.target.parentElement.parentElement.id
+                        );
+                        edicao === "edicao"
+                          ? editarPartida(
+                              event.target.parentElement.parentElement,
+                              "confirm"
+                            )
+                          : editarPartida(
+                              event.target.parentElement.parentElement,
+                              "edicao"
+                            );
                       }}
                     />
                   </td>
