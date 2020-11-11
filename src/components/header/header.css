@@ -1,37 +1,74 @@
-.menu {
-  width: 100%;
-  background-color: #1d422c;
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap");
+
+.header {
+  width: 100vw;
+  background-color: #282c34;
+  box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 1);
   display: flex;
   justify-content: center;
-}
-
-.menu .conteudo {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 1280px;
   padding: 0 2rem;
 }
-
-.menu label {
-  margin-right: 1.5rem;
+.header .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1080px;
+  position: relative;
 }
 
-.menu label > input {
-  margin-left: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  box-shadow: none;
-  outline-style: none;
-  border: 0;
+.header .content h1 {
+  font-family: "Rajdhani", sans-serif;
+  color: rgb(233, 233, 233);
+  font-size: 3rem;
+  letter-spacing: 0.75rem;
 }
 
-.menu button {
-  padding: 0.4rem 0.7rem;
-  box-shadow: none;
-  outline-style: none;
-  border: none;
-  color: white;
-  background-color: #242442;
+.btn-logar {
   cursor: pointer;
+  position: absolute;
+  right: 0;
+  justify-self: end;
+  color: rgb(233, 233, 233);
+}
+
+.btn-logar:hover {
+  color: rgb(3, 194, 3);
+}
+
+.btn-logar:active {
+  color: rgb(0, 117, 0);
+}
+
+.btn-logado {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  justify-self: end;
+  color: rgb(3, 194, 3);
+  transition: color 2000ms;
+}
+
+.btn-logado:hover {
+  color: rgb(194, 32, 3);
+}
+
+.btn-logado:active {
+  color: rgb(151, 28, 6);
+}
+
+.login {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.897);
+  /* background-color: rgba(255, 255, 255, 0.637); */
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.input {
+  color: white;
+}
+.MuiOutlinedInput-root {
+  border-color: cyan;
 }
