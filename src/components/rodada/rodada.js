@@ -13,7 +13,7 @@ const TabelaRodada = (props) => {
   const [idEvento, setIdEvento] = React.useState(null);
 
   React.useEffect(() => {
-    fetch("http://localhost:8081/jogos/1")
+    fetch(`${process.env.REACT_APP_API_URL}/jogos/1`)
       .then((res) => res.json())
       .then((dados) => {
         setTabelaRodada(dados.dados);
@@ -38,7 +38,7 @@ const TabelaRodada = (props) => {
     if (estado === "confirm") {
       setEdicao("confirm");
 
-      fetch("http://localhost:8081/jogos", {
+      fetch(`${process.env.REACT_APP_API_URL}/jogos`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

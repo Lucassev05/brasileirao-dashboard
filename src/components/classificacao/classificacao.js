@@ -12,7 +12,7 @@ const TabelaClassificacao = (props) => {
   const [ascOuDesc, setAscOuDesc] = React.useState("desc");
 
   React.useEffect(() => {
-    fetch("http://localhost:8081/classificacao")
+    fetch(`${process.env.REACT_APP_API_URL}/classificacao`)
       .then((res) => res.json())
       .then((dados) => {
         setClassificacao(dados.dados);

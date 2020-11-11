@@ -8,7 +8,7 @@ function App() {
   const [token, setToken] = React.useState("");
 
   const realizarLogin = (data) => {
-    fetch("http://localhost:8081/auth", {
+    fetch(`${process.env.REACT_APP_API_URL}/auth`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
